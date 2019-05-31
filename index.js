@@ -18,6 +18,10 @@ module.exports = function LocalImport({ types: t }) {
                         acturalImportPath = './' + acturalImportPath;
                     }
                     source.replaceWith(t.stringLiteral(acturalImportPath));
+                    // const newImports = path.node.specifiers.map( item => {
+                    //     return t.importDeclaration([t.importDefaultSpecifier(item.local)], t.stringLiteral(`${alias}/${item.local.name}`))
+                    // });
+                    // path.replaceWithMultiple(newImports);
                 }
             }
         }
