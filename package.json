@@ -1,0 +1,9 @@
+{
+    "name": "babel-plugin-local-import",
+    "version": "0.1.0",
+    "description": "A babel plugin for aliasing local module import",
+    "main": "index.js",
+    "repository": "https://github.com/raythorn/babel-plugin-local-import",
+    "author": "Derek Ray <derek.ray@raythorn.com>",
+    "license": "MIT"
+  }
