@@ -15,3 +15,21 @@
 
 ### Feature
 ----
+    A simple babel plugin for importing local module as in node_modules, and don't need to write tediously long relative path while importing.
+### Keywords
+----
+    * babel plugin
+    * import module
+
+### Usage
+---
+    configure local module path in .babelrc, for example, a local module in './local/path/moduleA'
+```json
+    {
+        "plugins": ["local-import", { "libraryName": "moduleA", "libraryDirectory": "./local/path" } ]
+    }
+```
+    and now, we can import 'moduleA' just as follow:
+```js
+    import moduelA from 'moduleA';
+```
