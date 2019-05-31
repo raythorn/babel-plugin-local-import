@@ -18,10 +18,12 @@ module.exports = function LocalImport({ types: t }) {
                         acturalImportPath = './' + acturalImportPath;
                     }
                     source.replaceWith(t.stringLiteral(acturalImportPath));
+                    // TODO:
                     // const newImports = path.node.specifiers.map( item => {
                     //     return t.importDeclaration([t.importDefaultSpecifier(item.local)], t.stringLiteral(`${alias}/${item.local.name}`))
                     // });
                     // path.replaceWithMultiple(newImports);
+                    // should handle import { A as B } from 'C'
                 }
             }
         }
