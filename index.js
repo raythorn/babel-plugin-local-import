@@ -15,9 +15,7 @@ module.exports = function LocalImport({ types: t }) {
                     libraryDirectory = libraryDirectory || '';
 
                     let acturalImportPath = filepath.join(filepath.relative(srcdir, libraryDirectory), libraryName);
-                    console.log(acturalImportPath);
                     acturalImportPath = acturalImportPath.replace(/\\/g, '/');
-                    console.log(acturalImportPath);
                     if (acturalImportPath[0] !== '.') {
                         acturalImportPath = './' + acturalImportPath;
                     }
