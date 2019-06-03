@@ -1,4 +1,8 @@
-const join = require('path').join;
+const filepath = require('path');
+
+function findRelativePath(require) {
+
+}
 
 module.exports = function LocalImport({ types: t }) {
     return {
@@ -7,13 +11,17 @@ module.exports = function LocalImport({ types: t }) {
                 enter(path, state) {
                     const source = path.get('source');
                     let { opts: { libraryName, libraryDirectory } } = state;
+                    const srcdir = filepath.parse(state.file.opts.filename).dir;
                     if (source.node.value !== libraryName) {
                         return;
                     }
 
                     libraryDirectory = libraryDirectory || '';
-                    let acturalImportPath = join(libraryDirectory, libraryName);
-                    acturalImportPath = acturalImportPath.replace('\\', '/');
+
+                    let acturalImportPath = filepath.join(filepath.relative(srcdir, libraryDirectory), libraryName);
+                    console.log(acturalImportPath);
+                    acturalImportPath = acturalImportPath.replace(/\\/g, '/');
+                    console.log(acturalImportPath);
                     if (acturalImportPath[0] !== '.') {
                         acturalImportPath = './' + acturalImportPath;
                     }
