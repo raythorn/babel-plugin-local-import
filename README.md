@@ -20,6 +20,8 @@ and don't need to write tediously long relative path while importing.
 ----
 * babel plugin
 * import module
+* local module
+* relative path
 
 ### Usage
 ---
@@ -34,7 +36,7 @@ configure local module path in .babelrc, for example, a local module in './local
     ]
 }
 ```
-and now, we can import 'moduleA' just as follow:
+and now, we can import 'moduleA' just as it's installed node_modules directory:
 ```js
 import moduelA from 'moduleA';
 ```
