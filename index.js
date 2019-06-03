@@ -1,9 +1,5 @@
 const filepath = require('path');
 
-function findRelativePath(require) {
-
-}
-
 module.exports = function LocalImport({ types: t }) {
     return {
         visitor: {
