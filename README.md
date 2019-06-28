@@ -22,6 +22,7 @@ and don't need to write tediously long relative path while importing.
 * import module
 * local module
 * relative path
+* import module on demand
 
 ### Usage
 ---
@@ -32,11 +33,32 @@ configure local module path in .babelrc, for example, a local module in './local
         ["local-import", { 
             "libraryName": "moduleA", 
             "libraryDirectory": "./local/path" 
-        }] 
+        }],
+        ["local-import", { 
+            "libraryName": "moduleB", 
+            "libraryDirectory": "./local/path",
+            "subdirectory": "src/components",
+            "camel2dash": true,
+            "expand": true,
+        }],
     ]
 }
 ```
-and now, we can import 'moduleA' just as it's installed node_modules directory:
+and now, we can import component from 'moduleA' just as it's installed node_modules directory:
 ```js
-import moduelA from 'moduleA';
+import test from 'moduleA';
+```
+which will be compiled as:
+```js
+import test from './local/path/moduleA';
+```
+---
+if you want import component from 'moduleB' on demand:
+```js
+import { TestFunc, TestParam } from 'moduleB';
+```
+which will be compiled as:
+```js
+import TestFunc from './local/path/moduleB/src/components/test-func';
+import TestParam from './local/path/moduleB/src/components/test-param';
 ```
